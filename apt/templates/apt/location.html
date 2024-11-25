@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero">
+    <h2>입지환경</h2>
+</section>
+
+<!-- 탭 버튼 -->
+<div class="tabs">
+    <button class="tab-btn">사업개요</button>
+    <button class="tab-btn active">입지환경</button>
+    <button class="tab-btn">오시는길</button>
+</div>
+
+<div class="locatoin">
+    <img src="{% static 'images/입지환경.png' %}">
+    <img src="{% static 'images/입지환경2.png' %}">
+    <img src="{% static 'images/입지환경3.png' %}">
+    <img src="{% static 'images/입지환경4.png' %}">
+</div>
+
+{% endblock %}

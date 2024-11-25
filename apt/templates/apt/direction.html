@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero">
+    <h2>입지환경</h2>
+</section>
+
+<!-- 탭 버튼 -->
+<div class="tabs">
+    <button class="tab-btn">사업개요</button>
+    <button class="tab-btn">입지환경</button>
+    <button class="tab-btn active">오시는길</button>
+</div>
+
+<div class="locatoin">
+    <img src="{% static 'images/오시는길.jpg' %}">
+</div>
+
+<div class="address">
+    <p>견본주택 : 천안시 동남구 영성동 54-3번지 일원</p>
+    <button>네이버 지도 보기</button>
+    <button>카카오 지도 보기</button>
+    <h2>1577-1577</h2>
+</div>
+
+{% endblock %}
