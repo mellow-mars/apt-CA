@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero">
+    <h2>평형안내</h2>
+</section>
+
+<h3><br> 평형안내 <br></h3>
+
+<!-- 탭 버튼 -->
+<div class="tabs">
+    <button class="tab-btn" onclick="showPlan('84A')">84m²A</button>
+    <button class="tab-btn" onclick="showPlan('84B')">84m²B</button>
+    <button class="tab-btn" onclick="showPlan('84C')">84m²C</button>
+    <button class="tab-btn" onclick="showPlan('84D')">84m²D</button>
+    <button class="tab-btn" onclick="showPlan('84E')">84m²E</button>
+    <button class="tab-btn" onclick="showPlan('84F')">84m²F</button>
+    <button class="tab-btn" onclick="showPlan('84G')">84m²G</button>
+</div>
+
+<div class="plan-content">
+    <div id="plan-84A" class="plan" style="display: block;">
+        <img src="{% static 'images/84a.png' %}">
+    </div>
+    <div id="plan-84B" class="plan" style="display: none;">
+        <img src="{% static 'images/84b.png' %}">
+    </div>
+    <div id="plan-84C" class="plan" style="display: none;">
+        <img src="{% static 'images/84c.png' %}">
+    </div>
+    <div id="plan-84D" class="plan" style="display: none;">
+        <img src="{% static 'images/84d.png' %}">
+    </div>
+    <div id="plan-84E" class="plan" style="display: none;">
+        <img src="{% static 'images/84e.png' %}">
+    </div>
+    <div id="plan-84F" class="plan" style="display: none;">
+        <img src="{% static 'images/84f.png' %}">
+    </div>
+    <div id="plan-84G" class="plan" style="display: none;">
+        <img src="{% static 'images/84g.png' %}">
+    </div>
+</div>
+
+<script>
+    function showPlan(plan) {
+        // 모든 평면 숨기기
+        const plans = document.querySelectorAll('.plan');
+        plans.forEach(function(planDiv) {
+            planDiv.style.display = 'none';
+        });
+    
+        // 선택한 평면만 표시
+        const selectedPlan = document.getElementById(`plan-${plan}`);
+        if (selectedPlan) {
+            selectedPlan.style.display = 'block';
+        }
+    }
+</script>
+
+{% endblock %}
