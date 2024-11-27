@@ -198,9 +198,7 @@ header ul li a {
 }
 
 .nav-tel {
-    padding: 8px 20px;
-    margin-right: 15px;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .menu-toggle {
@@ -231,7 +229,7 @@ header ul li a {
     }
 
     .nav-logo img {
-        width: 80%;
+        width: 100%;
     }
 
     .nav-menu {
