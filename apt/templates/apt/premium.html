@@ -47,7 +47,6 @@
             <img src="{% static 'images/6f2.png' %}" alt="6층 이미지" />
         </div>
     </div>
-    
 </div>
 
 <script>
@@ -63,20 +62,30 @@
         if (selectedFloor) {
             selectedFloor.style.display = 'block';
         }
-    }
-    // 탭 활성화 함수
-    function setActiveTab(event) {
-        const tabs = document.querySelectorAll('.tab-btn');
-        tabs.forEach(function(tab) {
-            tab.classList.remove('active');  // 기존 활성화된 탭에서 active 클래스 제거
+
+        // 층 탭 활성화
+        const floorTabs = document.querySelectorAll('.premium .tabs .tab-btn');
+        floorTabs.forEach(function(tab) {
+            tab.classList.remove('active'); // 기존 활성화된 탭에서 active 클래스 제거
         });
-        event.target.classList.add('active');  // 클릭한 탭에 active 클래스 추가
+        
+        // 클릭한 층 탭에만 active 클래스 추가
+        const selectedTab = document.querySelector(`.premium .tabs button:nth-child(${floor})`);
+        if (selectedTab) {
+            selectedTab.classList.add('active');
+        }
     }
 
     // 모든 탭에 클릭 이벤트 추가
     const tabButtons = document.querySelectorAll('.tab-btn');
     tabButtons.forEach(function(button) {
-        button.addEventListener('click', setActiveTab);
+        button.addEventListener('click', function(event) {
+            // 프리미엄 30 탭은 항상 활성화 상태로 두기
+            const premiumTab = document.querySelector('.tabs button:nth-child(3)');
+            if (premiumTab) {
+                premiumTab.classList.add('active');
+            }
+        });
     });
 </script>
 {% endblock %}
