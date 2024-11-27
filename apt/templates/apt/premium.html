@@ -23,7 +23,7 @@
 
 <div class="premium">
     <div class="tabs">
-        <button class="tab-btn" onclick="showFloor(1)">1층</button>
+        <button class="tab-btn active" onclick="showFloor(1)">1층</button>
         <button class="tab-btn" onclick="showFloor(2)">2,3,4층</button>
         <button class="tab-btn" onclick="showFloor(5)">5층</button>
         <button class="tab-btn" onclick="showFloor(6)">6층</button>
@@ -64,6 +64,19 @@
             selectedFloor.style.display = 'block';
         }
     }
-    
+    // 탭 활성화 함수
+    function setActiveTab(event) {
+        const tabs = document.querySelectorAll('.tab-btn');
+        tabs.forEach(function(tab) {
+            tab.classList.remove('active');  // 기존 활성화된 탭에서 active 클래스 제거
+        });
+        event.target.classList.add('active');  // 클릭한 탭에 active 클래스 추가
+    }
+
+    // 모든 탭에 클릭 이벤트 추가
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    tabButtons.forEach(function(button) {
+        button.addEventListener('click', setActiveTab);
+    });
 </script>
 {% endblock %}

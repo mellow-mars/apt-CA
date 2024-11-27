@@ -9,53 +9,78 @@
 
 <!-- 탭 버튼 -->
 <div class="tabs">
-    <button class="tab-btn" onclick="showPlan('84A')">84m²A</button>
-    <button class="tab-btn" onclick="showPlan('84B')">84m²B</button>
-    <button class="tab-btn" onclick="showPlan('84C')">84m²C</button>
-    <button class="tab-btn" onclick="showPlan('84D')">84m²D</button>
-    <button class="tab-btn" onclick="showPlan('84E')">84m²E</button>
-    <button class="tab-btn" onclick="showPlan('84F')">84m²F</button>
-    <button class="tab-btn" onclick="showPlan('84G')">84m²G</button>
+    <button class="tab-btn" onclick="showPlan('84A', this)">84m²A</button>
+    <button class="tab-btn" onclick="showPlan('84B', this)">84m²B</button>
+    <button class="tab-btn" onclick="showPlan('84C', this)">84m²C</button>
+    <button class="tab-btn" onclick="showPlan('84D', this)">84m²D</button>
+    <button class="tab-btn" onclick="showPlan('84E', this)">84m²E</button>
+    <button class="tab-btn" onclick="showPlan('84F', this)">84m²F</button>
+    <button class="tab-btn" onclick="showPlan('84G', this)">84m²G</button>
 </div>
 
-<div class="plan-content">
-    <div id="plan-84A" class="plan" style="display: block;">
-        <img src="{% static 'images/84a.png' %}">
-    </div>
-    <div id="plan-84B" class="plan" style="display: none;">
-        <img src="{% static 'images/84b.png' %}">
-    </div>
-    <div id="plan-84C" class="plan" style="display: none;">
-        <img src="{% static 'images/84c.png' %}">
-    </div>
-    <div id="plan-84D" class="plan" style="display: none;">
-        <img src="{% static 'images/84d.png' %}">
-    </div>
-    <div id="plan-84E" class="plan" style="display: none;">
-        <img src="{% static 'images/84e.png' %}">
-    </div>
-    <div id="plan-84F" class="plan" style="display: none;">
-        <img src="{% static 'images/84f.png' %}">
-    </div>
-    <div id="plan-84G" class="plan" style="display: none;">
-        <img src="{% static 'images/84g.png' %}">
+<div class="pyeong">
+    <div class="plan-content">
+        <div id="plan-84A" class="plan" style="display: block;">
+            <img src="{% static 'images/84a.png' %}">
+        </div>
+        <div id="plan-84B" class="plan" style="display: none;">
+            <img src="{% static 'images/84b.png' %}">
+        </div>
+        <div id="plan-84C" class="plan" style="display: none;">
+            <img src="{% static 'images/84c.png' %}">
+        </div>
+        <div id="plan-84D" class="plan" style="display: none;">
+            <img src="{% static 'images/84d.png' %}">
+        </div>
+        <div id="plan-84E" class="plan" style="display: none;">
+            <img src="{% static 'images/84e.png' %}">
+        </div>
+        <div id="plan-84F" class="plan" style="display: none;">
+            <img src="{% static 'images/84f.png' %}">
+        </div>
+        <div id="plan-84G" class="plan" style="display: none;">
+            <img src="{% static 'images/84g.png' %}">
+        </div>
     </div>
 </div>
 
 <script>
-    function showPlan(plan) {
+    function showPlan(plan, button) {
         // 모든 평면 숨기기
         const plans = document.querySelectorAll('.plan');
-        plans.forEach(function(planDiv) {
+        plans.forEach(function (planDiv) {
             planDiv.style.display = 'none';
         });
-    
+
         // 선택한 평면만 표시
         const selectedPlan = document.getElementById(`plan-${plan}`);
         if (selectedPlan) {
             selectedPlan.style.display = 'block';
         }
+
+        // 모든 탭에서 active 클래스 제거
+        const tabs = document.querySelectorAll('.tab-btn');
+        tabs.forEach(function (tab) {
+            tab.classList.remove('active');
+        });
+
+        // 클릭된 탭에 active 클래스 추가
+        button.classList.add('active');
     }
+
+    // 현재 URL에서 쿼리 파라미터 읽기
+    document.addEventListener('DOMContentLoaded', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const plan = urlParams.get('plan'); // "plan" 파라미터 값 가져오기
+
+        if (plan) {
+            // 해당 평면 표시
+            showPlan(plan, document.querySelector(`button[onclick="showPlan('${plan}', this)"]`));
+        } else {
+            // 기본 평면으로 첫 번째 평면 표시
+            showPlan('84A', document.querySelector('button[onclick="showPlan(\'84A\', this)"]'));
+        }
+    });
 </script>
 
 {% endblock %}

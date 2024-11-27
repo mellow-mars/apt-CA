@@ -1,24 +1,68 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>분양 홈페이지</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="{% url 'home' %}">천안역 르씨엘</a></li>
-                <li><a href="{% url 'information' %}">사업안내</a></li>
-                <li><a href="{% url 'concierge' %}">프리미엄</a></li>
-                <li><a href="{% url 'block' %}">단지안내</a></li>
-                <li><a href="{% url 'pyeong' %}">평형안내</a></li>
-                <li><a href="{% url 'home' %}">방문예약</a></li>
-                <li><a href="{% url 'home' %}">1577-1577</a></li>
-            </ul>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="{% url 'home' %}" class="nav-logo"><img src="{% static 'images/logo.png' %}"></a>
+
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="{% url 'information' %}" class="nav-link">사업안내</a>
+                        <div class="dropdown">
+                            <a href="{% url 'information' %}" class="dropdown-item">사업개요</a>
+                            <a href="{% url 'location' %}" class="dropdown-item">입지환경</a>
+                            <a href="{% url 'direction' %}" class="dropdown-item">오시는길</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'concierge' %}" class="nav-link">프리미엄</a>
+                        <div class="dropdown">
+                            <a href="{% url 'concierge' %}" class="dropdown-item">컨시어지10</a>
+                            <a href="{% url 'smart' %}" class="dropdown-item">스마트20</a>
+                            <a href="{% url 'premium' %}" class="dropdown-item">프리미엄30</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'block' %}" class="nav-link">단지안내</a>
+                        <div class="dropdown">
+                            <a href="{% url 'block' %}" class="dropdown-item">단지배치도</a>
+                            <a href="{% url 'pyeong' %}" class="dropdown-item">동호수배치도</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'pyeong' %}" class="nav-link">평형안내</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item" onclick="navigatePlan(event, '84A')">84m²A</a>
+                            <a href="#" class="dropdown-item" onclick="navigatePlan(event, '84B')">84m²B</a>
+                            <a href="#" class="dropdown-item" onclick="navigatePlan(event, '84C')">84m²C</a>
+                            <a href="#" class="dropdown-item" onclick="navigatePlan(event, '84D')">84m²D</a>
+                            <a href="#" class="dropdown-item" onclick="navigatePlan(event, '84E')">84m²E</a>
+                            <a href="#" class="dropdown-item" onclick="navigatePlan(event, '84F')">84m²F</a>
+                            <a href="#" class="dropdown-item" onclick="navigatePlan(event, '84G')">84m²G</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">방문예약</a>
+                    </li>
+                </ul>
+
+                <div class="nav-right">
+                    <div class="nav-tel">1666-4541</div>
+                    <div class="menu-toggle">
+                        <span>☰</span>
+                    </div>
+                </div>
+            </div>
         </nav>
     </header>
 
@@ -30,5 +74,23 @@
     <footer>
         <p>&copy; 2024 분양 홈페이지. All rights reserved.</p>
     </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        function navigatePlan(event, plan) {
+            event.preventDefault(); // 기본 링크 동작 막기
+
+            // 평형안내 페이지로 이동하면서 URL에 plan 정보를 추가
+            const url = `{% url 'pyeong' %}?plan=${plan}`;
+            window.location.href = url;
+        }
+    </script>
 </body>
+
 </html>

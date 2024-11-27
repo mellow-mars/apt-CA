@@ -14,15 +14,15 @@
     <button class="tab-btn active" onclick="location.href='{% url 'direction' %}'">오시는길</button>
 </div>
 
-<div class="locatoin">
+<div class="direction">
     <img src="{% static 'images/오시는길.jpg' %}">
 </div>
 
 <div class="address">
-    <p>견본주택 : 천안시 동남구 영성동 54-3번지 일원</p>
-    <button>네이버 지도 보기</button>
-    <button>카카오 지도 보기</button>
-    <h2>1577-1577</h2>
+    <p>홍보관 및 현장 주소 : 천안시 동남구 영성동 54-3번지</p>
+    <button onclick="window.open('https://naver.me/xgN1aGNe', '_blank')">네이버 지도 보기</button>
+    <button onclick="window.open('https://kko.kakao.com/2lXHKB-KBL', '_blank')">카카오 지도 보기</button>
+    <a href="#"><h2>1555-5042</h2></a>
 </div>
 
 {% endblock %}
