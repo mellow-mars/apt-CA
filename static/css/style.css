@@ -199,12 +199,53 @@ header ul li a {
 
 .nav-tel {
     font-size: 25px;
+    color: white;
+    text-decoration: none;
 }
 
 .menu-toggle {
     display: none;
     font-size: 24px;
     cursor: pointer;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 15px 0;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.divider {
+    margin: 0 10px;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .divider {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -630,6 +671,53 @@ header ul li a {
     width: 100%;
 }
 
+.direct {
+    color: black;
+    text-decoration: none;
+}
+
+.addressbtn {
+    padding: 10px 15px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.btn img.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.naver-btn {
+    background-color: #03c75a;
+    /* 네이버 초록색 */
+    color: white;
+}
+
+.naver-btn:hover {
+    background-color: #02a54a;
+    /* 네이버 버튼 호버 색상 */
+}
+
+.kakao-btn {
+    background-color: #fee500;
+    /* 카카오 노란색 */
+    color: #3c1e1e;
+    /* 카카오 텍스트 색상 */
+}
+
+.kakao-btn:hover {
+    background-color: #dbc300;
+    /* 카카오 버튼 호버 색상 */
+}
+
 
 
 /* premium.html */
@@ -637,10 +725,14 @@ header ul li a {
     width: 100%;
 }
 
+
+
 /* block.html */
 .block img {
     width: 100%;
 }
+
+
 
 /* pyeong.html */
 .pyeong img {
