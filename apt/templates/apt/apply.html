@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+    <title>방문예약</title>
+</head>
+<body>
+    <h1>방문예약</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">접수</button>
+    </form>
+</body>
+
+{% endblock %}
