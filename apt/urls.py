@@ -12,4 +12,5 @@ urlpatterns = [
     path('block/', views.block, name='block'),
     path('dong/', views.dong, name='dong'),
     path('pyeong/', views.pyeong, name='pyeong'),
+    path('apply/', views.apply, name='apply'),
 ]

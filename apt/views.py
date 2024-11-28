@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import CustomerForm
 
 def home(request):
     return render(request, 'index.html')
@@ -29,3 +30,14 @@ def dong(request):
 
 def pyeong(request):
     return render(request, 'apt/pyeong.html')
+    
+def apply(request):
+    if request.method == 'POST':
+        form = CustomerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'index.html')  # Redirect or render a success page
+    else:
+        form = CustomerForm()
+
+    return render(request, 'apt/apply.html', {'form': form})
