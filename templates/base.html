@@ -13,7 +13,7 @@
     <header>
         <nav class="navbar">
             <div class="nav-container">
-                <a href="{% url 'home' %}" class="nav-logo"><img src="{% static 'images/logo.png' %}"></a>
+                <a href="{% url 'index' %}" class="nav-logo"><img src="{% static 'images/logo.png' %}"></a>
 
                 <ul class="nav-menu">
                     <li class="nav-item">
@@ -52,7 +52,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'apply' %}" class="nav-link">방문예약</a>
+                        <a href="{% url 'apply' %}" class="nav-link">관심고객등록</a>
                     </li>
                 </ul>
 
@@ -66,7 +66,7 @@
         </nav>
     </header>
 
-    <main>
+    <main class="content">
         {% block content %}
         {% endblock %}
     </main>

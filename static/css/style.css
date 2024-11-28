@@ -86,11 +86,14 @@ body {
     padding: 0;
     line-height: 1.6;
     text-align: center;
-    height: auto;
+    height: 100%;
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    padding-bottom: 0;
+}
+
+.content {
+    flex: 1; /* 남은 공간을 채우기 위해 flex 사용 */
 }
 
 header {
@@ -220,8 +223,8 @@ header ul li a {
     color: white;
     padding: 15px 0;
     font-size: 14px;
-    position: relative;
-    transform: translateY(105%);
+    width: 100%;
+    margin-top: auto;
 }
 
 .footer-container {
@@ -436,6 +439,11 @@ header ul li a {
     /* 텍스트 영역 제한 */
 }
 
+.responsive-text {
+    font-size: 1rem; /* 반응형 폰트 크기 */
+    word-break: keep-all; /* 단어가 잘리지 않도록 */
+}
+
 /* .overlay.active {
     opacity: 1;
     height: 10%;
@@ -569,6 +577,7 @@ header ul li a {
         text-align: center;
         font-size: 13px;
     }
+
 }
 
 @media (max-width: 480px) {
@@ -610,6 +619,11 @@ header ul li a {
 
     .logo-text {
         font-size: 10px;
+    }
+
+    .responsive-text {
+        font-size: 0.5rem; /* 모바일에서 글씨 더 작게 */
+        line-height: 1.2; /* 줄 간격 최적화 */
     }
 }
 
@@ -753,4 +767,130 @@ header ul li a {
 /* pyeong.html */
 .pyeong img {
     width: 100%;
+}
+
+
+
+/* apply.html */
+/* 폼 전체 스타일 */
+.reservation-form {
+    max-width: 600px;
+    margin: 7vh auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+}
+
+/* 테이블 스타일 */
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    height: 50px;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+}
+
+.form-group label {
+    font-size: 1rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.form-group td {
+    padding: 12px;
+    vertical-align: middle;
+}
+
+.form-group td:first-child {
+    background-color: #f0f0f0; /* 성함 라벨과 전화번호 라벨 배경색 */
+}
+
+/* 입력 필드 스타일 */
+.form-group input[type="text"] {
+    padding: 8px;
+    font-size: 1rem;
+    width: 100%;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+/* 전화번호 입력칸 */
+.phone-input {
+    width: 30%;
+    margin-right: 5%;
+    text-align: center;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.phone-input:last-child {
+    margin-right: 0;
+}
+
+/* 버튼 스타일 */
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: rgb(63, 62, 62);
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+    .reservation-form {
+        padding: 15px;
+    }
+
+    .form-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .phone-input {
+        width: 32%;
+        margin-right: 10px;
+    }
+
+    .submit-btn {
+        font-size: 1.1rem;
+        padding: 14px;
+    }
+}
+
+.messages {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 10px;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert.success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
 }

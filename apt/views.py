@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from .forms import CustomerForm
 
-def home(request):
+def index(request):
     return render(request, 'index.html')
 
 def information(request):
@@ -32,12 +33,14 @@ def pyeong(request):
     return render(request, 'apt/pyeong.html')
     
 def apply(request):
+    success = False
     if request.method == 'POST':
         form = CustomerForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'index.html')  # Redirect or render a success page
+            messages.success(request, '등록되었습니다.')
+            success = True
     else:
         form = CustomerForm()
 
-    return render(request, 'apt/apply.html', {'form': form})
+    return render(request, 'apt/apply.html', {'form': form, 'success': success})
