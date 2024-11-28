@@ -263,7 +263,7 @@ header ul li a {
 
 @media screen and (max-width: 768px) {
     .navbar {
-        height: 8%;
+        height: 10%;
     }
 
     .nav-right {
