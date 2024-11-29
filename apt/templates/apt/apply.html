@@ -33,11 +33,21 @@
 {% endif %}
 
 <script>
-    document.getElementById('reservationForm').addEventListener('submit', function(event) {
+    // 폼 제출 시 처리
+    document.getElementById('reservationForm').addEventListener('submit', function (event) {
         const submitButton = document.getElementById('submitButton');
         submitButton.innerText = '등록 중...'; // 버튼 텍스트 변경 (선택 사항)
         submitButton.disabled = true; // 버튼 비활성화
     });
+
+    {% if success %}
+    // 구글 전환 이벤트 코드 삽입 (폼 제출 후 성공 시)
+    gtag('event', 'conversion', {
+        'send_to': 'AW-16785759182/y58LCIyhp_AZEM63icQ-',
+        'value': 1.0,
+        'currency': 'KRW'
+    });
+    {% endif %}
 </script>
 
 {% endblock %}
