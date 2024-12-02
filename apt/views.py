@@ -44,7 +44,7 @@ def apply(request):
 
             # 전화번호 유효성 검사 (11자리 또는 13자리 숫자와 '-'만 허용)
             if not re.fullmatch(r'^\d{11}$|^\d{3}-\d{4}-\d{4}$', phone_number):
-                messages.error(request, 'phone_number', '전화번호는 11자리 또는 13자리 숫자와 "-"만 사용 가능합니다.')
+                messages.error(request, '전화번호는 11자리 또는 13자리 숫자와 "-"만 사용 가능합니다.')
             else:
                 # 중복된 전화번호 확인
                 if Customer.objects.filter(Q(phone_number=phone_number)).exists():
