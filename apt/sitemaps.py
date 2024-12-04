@@ -3,7 +3,7 @@ from django.urls import reverse
 
 class StaticViewSitemap(Sitemap):
     priority = 0.5
-    changefreq = 'daily'
+    changefreq = 'monthly'
 
     def items(self):
         return ['index', 'information', 'location', 'direction', 'concierge', 
