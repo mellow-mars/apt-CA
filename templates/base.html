@@ -12,6 +12,21 @@
 
         gtag('config', 'AW-16785759182');
     </script>
+    <!-- Event snippet for 페이지 조회 전환 conversion page -->
+    <script>
+        gtag('event', 'conversion', { 'send_to': 'AW-16785759182/LcIuCOzf8v0ZEM63icQ-' });
+    </script>
+    <!-- Event snippet for 전화 문의 conversion page -->
+    <script>
+        window.addEventListener('load', function () {
+            var telLink = document.querySelectorAll('[href="tel:16664541"]');
+            for (var link of telLink) {
+                link.addEventListener('click', function () {
+                    gtag('event', 'conversion', { 'send_to': 'AW-16785759182/Q6PVCOvD8v0ZEM63icQ-' });
+                });
+            }
+        });
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="천안역 태왕아너스 르씨엘의 분양 홈페이지로, 최신 정보와 분양 안내를 제공합니다.">
