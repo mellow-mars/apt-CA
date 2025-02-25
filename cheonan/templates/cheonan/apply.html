@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero">
+    <h2>관심고객등록</h2>
+</section>
+
+<h3><br> 관심고객등록 <br></h3>
+
+<form method="post" class="reservation-form" id="reservationForm">
+    {% csrf_token %}
+    <table class="form-table">
+        <tr class="form-group">
+            <td><label for="{{ form.name.id_for_label }}">성함</label></td>
+            <td>{{ form.name }}</td>
+        </tr>
+        <tr class="form-group">
+            <td><label for="{{ form.phone_number.id_for_label }}">전화번호</label></td>
+            <td>{{ form.phone_number }}</td>
+        </tr>
+    </table>
+    <button type="submit" class="submit-btn" id="submitButton" {% if success %}disabled{% endif %}>접수</button>
+</form>
+
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <div class="alert {{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<script>
+    // 폼 제출 시 처리
+    document.getElementById('reservationForm').addEventListener('submit', function (event) {
+        const submitButton = document.getElementById('submitButton');
+        submitButton.innerText = '등록 중...'; // 버튼 텍스트 변경 (선택 사항)
+        submitButton.disabled = true; // 버튼 비활성화
+    });
+
+    {% if success %}
+    // 구글 전환 이벤트 코드 삽입 (폼 제출 후 성공 시)
+    gtag('event', 'conversion', {
+        'send_to': 'AW-16785759182/y58LCIyhp_AZEM63icQ-',
+        'value': 1.0,
+        'currency': 'KRW'
+    });
+    {% endif %}
+</script>
+
+{% endblock %}

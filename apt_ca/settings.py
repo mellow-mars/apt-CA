@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(*4*5cm(u9^+(g$tv&*^hjb8*9lhhqg2byv%f#-g=f1cdtp4!2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*',]
 
@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apt',
+    'cheonan',
+    'cheongju',
+    'yangju',
     'import_export',
 ]
 
@@ -123,7 +125,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "cheonan", "static"),
+    os.path.join(BASE_DIR, "yangju", "static"),
+    os.path.join(BASE_DIR, "cheongju", "static"),
+]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
