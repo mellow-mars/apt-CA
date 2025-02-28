@@ -1,0 +1,95 @@
+{% extends 'cheongju/base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero">
+    <h2>평형안내</h2>
+</section>
+
+<h3><br> 평형안내 <br></h3>
+
+<div class="tabs">
+    <button class="tab-btn" onclick="location.href='{% url 'cheongju:apt_danzi' %}'">단지안내</button>
+    <button class="tab-btn" onclick="location.href='{% url 'cheongju:apt_block' %}'">단지배치도</button>
+    <button class="tab-btn" onclick="location.href='{% url 'cheongju:apt_dong' %}'">동호수배치도</button>
+    <button class="tab-btn" onclick="location.href='{% url 'cheongju:apt_commu' %}'">커뮤니티</button>
+    <button class="tab-btn active" onclick="location.href='{% url 'cheongju:apt_pyeong' %}'">평면안내</button>
+</div>
+
+<!-- 탭 버튼 -->
+<div class="tabs-pyeong">
+    <button class="tab-btn" onclick="showPlan('84A', this)">84m²A</button>
+    <button class="tab-btn" onclick="showPlan('84B', this)">84m²B</button>
+    <button class="tab-btn" onclick="showPlan('116A', this)">116m²A</button>
+    <button class="tab-btn" onclick="showPlan('116B', this)">116m²B</button>
+    <button class="tab-btn" onclick="showPlan('134', this)">134m²</button>
+    <button class="tab-btn" onclick="showPlan('216', this)">216m²P</button>
+    <button class="tab-btn" onclick="showPlan('220', this)">220m²P</button>
+</div>
+
+<div class="pyeong">
+    <div class="plan-content">
+        <div id="plan-84A" class="plan" style="display: block;">
+            <img src="{% static 'cheongju/images/84A.webp' %}">
+        </div>
+        <div id="plan-84B" class="plan" style="display: none;">
+            <img src="{% static 'cheongju/images/84B.webp' %}">
+        </div>
+        <div id="plan-116A" class="plan" style="display: none;">
+            <img src="{% static 'cheongju/images/116A.webp' %}">
+        </div>
+        <div id="plan-116B" class="plan" style="display: none;">
+            <img src="{% static 'cheongju/images/116B.webp' %}">
+        </div>
+        <div id="plan-134" class="plan" style="display: none;">
+            <img src="{% static 'cheongju/images/134.webp' %}">
+        </div>
+        <div id="plan-216" class="plan" style="display: none;">
+            <img src="{% static 'cheongju/images/216.webp' %}">
+        </div>
+        <div id="plan-220" class="plan" style="display: none;">
+            <img src="{% static 'cheongju/images/220.webp' %}">
+        </div>
+    </div>
+</div>
+
+<script>
+    function showPlan(plan, button) {
+        // 모든 평면 숨기기
+        const plans = document.querySelectorAll('.plan');
+        plans.forEach(function (planDiv) {
+            planDiv.style.display = 'none';
+        });
+    
+        // 선택한 평면만 표시
+        const selectedPlan = document.getElementById(`plan-${plan}`);
+        if (selectedPlan) {
+            selectedPlan.style.display = 'block';
+        }
+    
+        // 📌 "tabs-pyeong" 내부 버튼들만 active 제거
+        const pyeongTabs = document.querySelectorAll('.tabs-pyeong .tab-btn');
+        pyeongTabs.forEach(function (tab) {
+            tab.classList.remove('active');
+        });
+    
+        // 클릭된 버튼에 active 클래스 추가
+        button.classList.add('active');
+    }
+    
+    // 현재 URL에서 쿼리 파라미터 읽기
+    document.addEventListener('DOMContentLoaded', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const plan = urlParams.get('plan'); // "plan" 파라미터 값 가져오기
+    
+        if (plan) {
+            // 해당 평면 표시
+            showPlan(plan, document.querySelector(`button[onclick="showPlan('${plan}', this)"]`));
+        } else {
+            // 기본 평면으로 첫 번째 평면 표시
+            showPlan('84A', document.querySelector('button[onclick="showPlan(\'84A\', this)"]'));
+        }
+    });
+    
+</script>
+
+{% endblock %}
