@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>청주 하트리움 더 메트로</title>
+    <link rel="stylesheet" href="{% static 'yangju/css/style.css' %}">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="{% url 'yangju:index' %}" class="nav-logo"><img
+                        src="{% static 'yangju/images/로고_흑백.png' %}"></a>
+
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="{% url 'yangju:information' %}" class="nav-link">사업안내</a>
+                        <div class="dropdown">
+                            <a href="{% url 'yangju:information' %}" class="dropdown-item">사업개요</a>
+                            <a href="{% url 'yangju:location' %}" class="dropdown-item">입지환경</a>
+                            <a href="{% url 'yangju:direction' %}" class="dropdown-item">오시는길</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'yangju:premium' %}" class="nav-link">프리미엄</a>
+                        <div class="dropdown">
+                            <a href="{% url 'yangju:premium' %}" class="dropdown-item">프리미엄</a>
+                            <a href="{% url 'yangju:commu' %}" class="dropdown-item">커뮤니티</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'yangju:block' %}" class="nav-link">단지안내</a>
+                        <div class="dropdown">
+                            <a href="{% url 'yangju:block' %}" class="dropdown-item">단지배치도</a>
+                            <a href="{% url 'yangju:dong' %}" class="dropdown-item">동호수배치도</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'yangju:pyeong' %}" class="nav-link">평형안내</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item" onclick="navigatePlan(event, '59A')">59m²A</a>
+                            <a href="#" class="dropdown-item" onclick="navigatePlan(event, '59B')">59m²B</a>
+                            <a href="#" class="dropdown-item" onclick="navigatePlan(event, '75A')">75m²A</a>
+                            <a href="#" class="dropdown-item" onclick="navigatePlan(event, '84A')">84m²A</a>
+                            <a href="#" class="dropdown-item" onclick="navigatePlan(event, '84B')">84m²B</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'yangju:apply' %}" class="nav-link">관심고객등록</a>
+                    </li>
+                </ul>
+
+                <div class="nav-right">
+                    <a href="tel:16664541" class="nav-tel">1666-4541</a>
+                    <div class="menu-toggle">
+                        <span>☰</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div>
+                    현장위치 : 경기도 양주시 은현면 용암리 784-8번지 일대
+                    <span class="divider">|</span>
+                    모델하우스 대표번호: 043-225-9177
+                </div>
+                <div>
+                    사이트 문의: 043-225-9177
+                    <span class="divider">|</span>
+                    COPYRIGHT © 2024 CONSTRUCTION LTD, All RIGHT RESERVED.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        function navigatePlan(event, plan) {
+            event.preventDefault(); // 기본 링크 동작 막기
+
+            // 평형안내 페이지로 이동하면서 URL에 plan 정보를 추가
+            const url = `{% url 'yangju:pyeong' %}?plan=${plan}`;
+            window.location.href = url;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+{% extends 'yangju/base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero">
+    <h2>프리미엄</h2>
+</section>
+
+<h3><br> 프리미엄 <br></h3>
+
+<!-- 탭 버튼 -->
+<div class="tabs">
+    <button class="tab-btn active" onclick="location.href='{% url 'yangju:premium' %}'">프리미엄</button>
+    <button class="tab-btn" onclick="location.href='{% url 'yangju:commu' %}'">커뮤니티</button>
+</div>
+
+<div class="premium-title">
+    <h3>양주용암 영무예다음 더 퍼스트</h3>
+    <h1>Premium 6</h1>
+</div>
+
+<div class="premium">
+    <img src="{% static 'yangju/images/프리1.jpg' %}">
+    <img src="{% static 'yangju/images/프리2.jpg' %}">
+    <img src="{% static 'yangju/images/프리3.jpg' %}">
+    <img src="{% static 'yangju/images/프리4.jpg' %}">
+    <img src="{% static 'yangju/images/프리5.jpg' %}">
+    <img src="{% static 'yangju/images/프리6.jpg' %}">
+</div>
+<br><br><br>
+
+{% endblock %}

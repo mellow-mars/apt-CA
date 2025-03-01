@@ -1,0 +1,24 @@
+{% extends 'yangju/base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero">
+    <h2>프리미엄</h2>
+</section>
+
+<h3><br> 커뮤니티 <br></h3>
+
+<!-- 탭 버튼 -->
+<div class="tabs">
+    <button class="tab-btn" onclick="location.href='{% url 'yangju:premium' %}'">프리미엄</button>
+    <button class="tab-btn active" onclick="location.href='{% url 'yangju:commu' %}'">커뮤니티</button>
+</div>
+
+<div class="commu">
+    <img src="{% static 'yangju/images/커뮤니티.png' %}">
+    <img src="{% static 'yangju/images/도서관.png' %}">
+    <img src="{% static 'yangju/images/운동시설.png' %}">
+    <img src="{% static 'yangju/images/편의시설.png' %}">
+</div>
+<br><br><br>
+
+{% endblock %}

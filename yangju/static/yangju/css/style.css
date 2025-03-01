@@ -117,10 +117,27 @@ header ul li a {
 }
 
 .hero {
-    background: url('../images/head.png') no-repeat center center/cover;
-    color: #fff;
+    position: relative;
+    background: url('../images/hero.png') no-repeat center center/cover;
+    color: rgb(255, 255, 255);
     text-align: center;
     padding: 50px 20px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 검은색 반투명 배경 */
+    z-index: 1;
+}
+
+.hero * {
+    position: relative;
+    z-index: 2;
 }
 
 .hero h1 {
@@ -152,6 +169,17 @@ header ul li a {
     list-style: none;
     margin: 0;
     padding: 0;
+    z-index: 999;
+}
+
+.nav-logo{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav-logo img {
+    max-width: 90%;
 }
 
 .nav-item {
@@ -631,8 +659,6 @@ header ul li a {
 /* information.html */
 .info {
     padding: 20px;
-    background: #f8f8f8;
-    border-top: 1px solid #ddd;
 }
 
 .info-row {
@@ -641,23 +667,8 @@ header ul li a {
     margin-bottom: 20px;
 }
 
-.info-item {
-    width: 45%;
-    background: white;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.info-item h3 {
-    margin: 0 0 10px;
-    font-size: 1.2rem;
-}
-
-.info-item p {
-    margin: 0;
-    color: #555;
-
+.info img {
+    width: 80%;
 }
 
 .main-image {
@@ -667,7 +678,7 @@ header ul li a {
 
 .main-image img {
     width: 100%;
-    max-width: 600px;
+    max-width: 80%;
     border-radius: 10px;
 }
 
@@ -697,7 +708,7 @@ header ul li a {
 
 /* direction.html */
 .direction img {
-    width: 100%;
+    width: 90%;
 }
 
 .direct {
@@ -750,22 +761,40 @@ header ul li a {
 
 
 /* premium.html */
+.premium {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3개씩 배치 */
+    gap: 20px; /* 이미지 간격 */
+    justify-items: center;
+    padding: 20px;
+}
+
 .premium img {
-    width: 100%;
+    width: 100%; /* 부모 크기에 맞추기 */
+    max-width: 300px; /* 원하는 최대 크기 설정 */
+    height: auto;
+}
+
+
+
+/* commu.html */
+.commu img {
+    width: 90%;
 }
 
 
 
 /* block.html */
 .block img {
-    width: 100%;
+    width: 90%;
 }
 
 
 
 /* pyeong.html */
 .pyeong img {
-    width: 100%;
+    width: 90%;
+    margin-bottom: 2rem;
 }
 
 
