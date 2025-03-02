@@ -179,7 +179,7 @@ header ul li a {
 }
 
 .nav-logo img {
-    max-width: 90%;
+    max-width: 300px;
 }
 
 .nav-item {
@@ -395,13 +395,44 @@ header ul li a {
     width: auto;
 }
 
-.text-container p {
-    font-size: 2.5vw;
+.main-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh; /* 화면 전체 높이 */
+    background: url('../images/메인.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: flex-start; /* 위쪽 정렬 */
+    justify-content: center;
+    text-align: center;
+    padding-top: 10vh; /* 텍스트를 위로 올리기 */
+}
+
+.main-text {
+    color: #111;
+    font-size: 3.5rem;
     font-weight: bold;
-    opacity: 0;
-    margin: 10px 0;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    left: -20%;
+    top: 5%;
+    opacity: 0.9;
+}
+
+/* 강조 색상 */
+.highlight-red {
+    color: red;
+}
+
+.highlight-black {
+    color: black;
+}
+
+.metro-icon {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    width: 80px;
+    height: auto;
 }
 
 .fade-in {
@@ -531,6 +562,11 @@ header ul li a {
         right: 2%;
     }
 
+    .main-text {
+        top: 1%;
+        left: -5%;
+    }
+
     .overlay.active {
         height: 10%;
     }
@@ -560,6 +596,10 @@ header ul li a {
 
     .text-container p {
         font-size: 3vw;
+    }
+
+    .main-text {
+        left: -10%;
     }
 
     .overlay {
@@ -686,7 +726,7 @@ header ul li a {
 
 /* location.html */
 .location-img img {
-    width: 100%;
+    width: 80%;
     margin-bottom: 5%;
 }
 
@@ -708,7 +748,7 @@ header ul li a {
 
 /* direction.html */
 .direction img {
-    width: 90%;
+    width: 80%;
 }
 
 .direct {
