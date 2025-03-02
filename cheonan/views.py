@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib import messages
 from .forms import CustomerForm
 from django.db.models import Q

@@ -1,0 +1,33 @@
+{% extends 'yangju/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="listing">
+        <img src="{% static 'yangju/images/메인.jpg' %}" alt="Apartment 1">
+        <div class="text-container">
+            <p class="fade-in" data-index="0">천안의 자부심</p>
+            <p class="fade-in" data-index="1">그 이상의<br>랜드마크가 되다!</p>
+            <p class="fade-in" data-index="2">천안역 태왕아너스 르씨엘</p>
+        </div>
+    </div>
+
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // 모든 텍스트 요소 가져오기
+        const textElements = document.querySelectorAll(".fade-in");
+
+        textElements.forEach((element, index) => {
+            // 애니메이션 딜레이를 설정
+            element.style.setProperty("--animation-delay", `${index * 1.5}s`);
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        const overlay = document.querySelector('.ovrlay');
+        setTimeout(() => {
+            overlay.classList.add('active');
+        }, 4000);
+    });
+</script>
+{% endblock %}

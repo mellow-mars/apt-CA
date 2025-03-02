@@ -26,11 +26,17 @@ def smart(request):
 def premium(request):
     return render(request, 'yangju/premium.html')
 
+def commu(request):
+    return render(request, 'yangju/commu.html')
+
 def block(request):
     return render(request, 'yangju/block.html')
 
 def dong(request):
     return render(request, 'yangju/dong.html')
+
+def system(request):
+    return render(request, 'yangju/system.html')
 
 def pyeong(request):
     return render(request, 'yangju/pyeong.html')
@@ -56,4 +62,4 @@ def apply(request):
     else:
         form = CustomerForm()
 
-    return render(request, 'apt/apply.html', {'form': form, 'success': success})
+    return render(request, 'yangju/apply.html', {'form': form, 'success': success})

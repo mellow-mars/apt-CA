@@ -1,0 +1,26 @@
+{% extends 'yangju/base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero">
+    <h2>사업안내</h2>
+</section>
+
+<h3><br> 입지환경 <br></h3>
+
+<!-- 탭 버튼 -->
+<div class="tabs">
+    <button class="tab-btn" onclick="location.href='{% url 'yangju:information' %}'">사업개요</button>
+    <button class="tab-btn active" onclick="location.href='{% url 'yangju:location' %}'">입지환경</button>
+    <button class="tab-btn" onclick="location.href='{% url 'yangju:direction' %}'">오시는길</button>
+</div>
+
+<div class="locatoin">
+    <div class="location-img">
+        <img src="{% static 'yangju/images/입지조건.png' %}">
+        <img src="{% static 'yangju/images/입지조건2.png' %}">
+        <img src="{% static 'yangju/images/입지조건3.png' %}">
+        <img src="{% static 'yangju/images/입지조건4.png' %}">
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'cheongju/base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero">
+    <h2>사업안내</h2>
+</section>
+
+<h3><br> 오시는길 <br></h3>
+
+<!-- 탭 버튼 -->
+<div class="tabs">
+    <button class="tab-btn" onclick="location.href='{% url 'cheongju:information' %}'">사업개요</button>
+    <button class="tab-btn" onclick="location.href='{% url 'cheongju:location' %}'">입지환경</button>
+    <button class="tab-btn active" onclick="location.href='{% url 'cheongju:direction' %}'">오시는길</button>
+</div>
+
+<div class="direction">
+    <img src="{% static 'cheongju/images/오시는길.png' %}">
+</div>
+
+<div class="address">
+    <h2>현장</h2>
+    <p>충청북도 청주시 흥덕구 송절동 산12-11번지 일원</p>
+    <button class="addressbtn naver-btn" onclick="window.open('https://naver.me/5huiyZ29', '_blank')">네이버 지도 보기</button>
+    <button class="addressbtn kakao-btn" onclick="window.open('https://kko.kakao.com/c061Gsk3fq', '_blank')">카카오 지도 보기</button>
+    <h2>모델하우스</h2>
+    <p>충청북도 청주시 흥덕구 외북동 326번지</p>
+    <br>
+    <button class="addressbtn naver-btn" onclick="window.open('https://naver.me/5VmwKugP', '_blank')">네이버 지도 보기</button>
+    <button class="addressbtn kakao-btn" onclick="window.open('https://kko.kakao.com/E5txm5jda9', '_blank')">카카오 지도 보기</button>
+    <a href="tel:16664541" class="direct"><h1>1666-4541</h1></a>
+</div>
+
+{% endblock %}

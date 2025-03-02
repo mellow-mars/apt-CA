@@ -1,0 +1,24 @@
+{% extends 'cheongju/base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero">
+    <h2>오피스텔</h2>
+</section>
+
+<h3><br> 프리미엄 6 <br></h3>
+
+<!-- 탭 버튼 -->
+<div class="tabs">
+    <button class="tab-btn active" onclick="location.href='{% url 'cheongju:of_premium' %}'">프리미엄6</button>
+    <button class="tab-btn" onclick="location.href='{% url 'cheongju:of_block' %}'">단지배치도</button>
+    <button class="tab-btn" onclick="location.href='{% url 'cheongju:of_dong' %}'">동호수배치도</button>
+    <button class="tab-btn" onclick="location.href='{% url 'cheongju:of_commu' %}'">커뮤니티</button>
+</div>
+
+<div class="premium">
+    <img src="{% static 'cheongju/images/프리미엄6.png' %}">
+    <img src="{% static 'cheongju/images/프리미엄6_2.png' %}">
+    <br><br><br>
+</div>
+
+{% endblock %}

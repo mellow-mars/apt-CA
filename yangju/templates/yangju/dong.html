@@ -1,0 +1,22 @@
+{% extends 'yangju/base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero">
+    <h2>단지안내</h2>
+</section>
+
+<h3><br> 동호수배치도 <br></h3>
+
+<!-- 탭 버튼 -->
+<div class="tabs">
+    <button class="tab-btn" onclick="location.href='{% url 'yangju:block' %}'">단지배치도</button>
+    <button class="tab-btn active" onclick="location.href='{% url 'yangju:dong' %}'">동호수배치도</button>
+    <button class="tab-btn" onclick="location.href='{% url 'yangju:system' %}'">시스템</button>
+</div>
+
+<div class="block">
+    <img src="{% static 'yangju/images/동호수배치도.jpg' %}">
+</div>
+<br><br><br>
+
+{% endblock %}

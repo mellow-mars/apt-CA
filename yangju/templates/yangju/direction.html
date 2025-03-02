@@ -1,0 +1,34 @@
+{% extends 'yangju/base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero">
+    <h2>사업안내</h2>
+</section>
+
+<h3><br> 오시는길 <br></h3>
+
+<!-- 탭 버튼 -->
+<div class="tabs">
+    <button class="tab-btn" onclick="location.href='{% url 'yangju:information' %}'">사업개요</button>
+    <button class="tab-btn" onclick="location.href='{% url 'yangju:location' %}'">입지환경</button>
+    <button class="tab-btn active" onclick="location.href='{% url 'yangju:direction' %}'">오시는길</button>
+</div>
+
+<div class="direction">
+    <img src="{% static 'yangju/images/오시는길.png' %}">
+</div>
+
+<div class="address">
+    <h2>현장</h2>
+    <p>경기도 양주시 은현면 용암리 784-8번지 일원</p>
+    <button class="addressbtn naver-btn" onclick="window.open('https://naver.me/xNLVKbUw', '_blank')">네이버 지도 보기</button>
+    <button class="addressbtn kakao-btn" onclick="window.open('https://kko.kakao.com/sNbNkTL7KT', '_blank')">카카오 지도 보기</button>
+    <h2>홍보관</h2>
+    <p>경기도 양주시 삼숭동 465-1번지</p>
+    <br>
+    <button class="addressbtn naver-btn" onclick="window.open('https://naver.me/xoHvkCtw', '_blank')">네이버 지도 보기</button>
+    <button class="addressbtn kakao-btn" onclick="window.open('https://kko.kakao.com/EAHfAXiWya', '_blank')">카카오 지도 보기</button>
+    <a href="tel:16664541" class="direct"><h1>1666-4541</h1></a>
+</div>
+
+{% endblock %}

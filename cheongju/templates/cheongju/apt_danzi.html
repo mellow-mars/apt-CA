@@ -1,0 +1,30 @@
+{% extends 'cheongju/base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero">
+    <h2>아파트</h2>
+</section>
+
+<div class="block-container">
+    <h3><br> 단지안내 <br></h3>
+
+    <!-- 탭 버튼 -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="location.href='{% url 'cheongju:apt_danzi' %}'">단지안내</button>
+        <button class="tab-btn" onclick="location.href='{% url 'cheongju:apt_block' %}'">단지배치도</button>
+        <button class="tab-btn" onclick="location.href='{% url 'cheongju:apt_dong' %}'">동호수배치도</button>
+        <button class="tab-btn" onclick="location.href='{% url 'cheongju:apt_commu' %}'">커뮤니티</button>
+        <button class="tab-btn" onclick="location.href='{% url 'cheongju:apt_pyeong' %}'">평면안내</button>
+    </div>
+
+    <div class="block">
+        <img src="{% static 'cheongju/images/단지안내1.png' %}"><br><br><br>
+        <img src="{% static 'cheongju/images/단지안내2.png' %}"><br><br><br>
+        <img src="{% static 'cheongju/images/단지안내3.png' %}"><br><br><br>
+        <img src="{% static 'cheongju/images/단지안내4.png' %}"><br><br><br>
+        <img src="{% static 'cheongju/images/단지안내5.png' %}"><br><br><br>
+        <br><br><br>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib import messages
 from . forms import CustomerForm
 from django.db.models import Q
@@ -17,24 +17,33 @@ def location(request):
 def direction(request):
     return render(request, 'cheongju/direction.html')
 
-def concierge(request):
-    return render(request, 'cheongju/concierge.html')
+def of_premium(request):
+    return render(request, 'cheongju/of_premium.html')
 
-def smart(request):
-    return render(request, 'cheongju/smart.html')
+def of_block(request):
+    return render(request, 'cheongju/of_block.html')
 
-def premium(request):
-    return render(request, 'cheongju/premium.html')
+def of_dong(request):
+    return render(request, 'cheongju/of_dong.html')
 
-def block(request):
-    return render(request, 'cheongju/block.html')
+def of_commu(request):
+    return render(request, 'cheongju/of_commu.html')
 
-def dong(request):
-    return render(request, 'cheongju/dong.html')
+def apt_danzi(request):
+    return render(request, 'cheongju/apt_danzi.html')
 
-def pyeong(request):
-    return render(request, 'cheongju/pyeong.html')
-    
+def apt_block(request):
+    return render(request, 'cheongju/apt_block.html')
+
+def apt_dong(request):
+    return render(request, 'cheongju/apt_dong.html')
+
+def apt_commu(request):
+    return render(request, 'cheongju/apt_commu.html')
+
+def apt_pyeong(request):
+    return render(request, 'cheongju/apt_pyeong.html')
+
 def apply(request):
     success = False
     if request.method == 'POST':
@@ -56,7 +65,7 @@ def apply(request):
     else:
         form = CustomerForm()
 
-    return render(request, 'apt/apply.html', {'form': form, 'success': success})
+    return render(request, 'cheongju/apply.html', {'form': form, 'success': success})
 
 def robots_txt(request):
     conetnt = """User-agent: *
