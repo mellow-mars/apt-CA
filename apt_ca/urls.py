@@ -23,5 +23,4 @@ urlpatterns = [
     path('cheonan/', include('cheonan.urls'),),
     path('cheongju/', include('cheongju.urls')),
     path('yangju/', include('yangju.urls')),
-    path('/', include )
 ]
